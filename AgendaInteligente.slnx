@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AgendaInteligente.Api/AgendaInteligente.Api.csproj" />
+  <Project Path="AgendaInteligente.Application/AgendaInteligente.Application.csproj" />
+  <Project Path="AgendaInteligente.Domain/AgendaInteligente.Domain.csproj" />
+  <Project Path="AgendaInteligente.Infrastructure/AgendaInteligente.Infrastructure.csproj" />
+</Solution>
