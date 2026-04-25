@@ -1,0 +1,53 @@
+/* Reset fundamental para evitar que bordas empurrem os itens */
+.calendar-card, .calendar-card * {
+    box-sizing: border-box;
+}
+
+/* Grade de Nomes dos Dias */
+.weekdays-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* FORÇA exatamente 7 colunas iguais */
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+}
+
+.weekday-cell {
+    text-align: center;
+    padding: 15px 0;
+    font-weight: bold;
+    color: #999;
+    font-size: 0.75rem;
+}
+
+/* Grade de Números */
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* FORÇA exatamente 7 colunas iguais */
+    width: 100%;
+}
+
+.day-cell {
+    aspect-ratio: 1 / 1; /* Mantém o quadrado perfeito */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #f8f8f8;
+    border-bottom: 1px solid #f8f8f8;
+    cursor: pointer;
+    font-weight: 500;
+    background-color: #fff;
+}
+
+/* Remove a borda da última coluna (Sábados) */
+.day-cell:nth-child(7n) {
+    border-right: none;
+}
+
+.day-cell:hover {
+    background-color: #f0f7ff;
+    color: #0d6efd;
+}
+
+.neighbor-day {
+    color: #ddd;
+}
