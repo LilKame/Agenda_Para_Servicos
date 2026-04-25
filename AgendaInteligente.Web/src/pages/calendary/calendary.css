@@ -1,53 +1,130 @@
-/* Reset fundamental para evitar que bordas empurrem os itens */
-.calendar-card, .calendar-card * {
-    box-sizing: border-box;
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Grade de Nomes dos Dias */
-.weekdays-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr); /* FORÇA exatamente 7 colunas iguais */
-    background: #fafafa;
+/* 2. BARRA DE NAVEGAÇÃO E RODAPÉ (Exemplos) */
+.navbar-custom, .footer-custom {
+    background-color: #ffffff;
+    padding: 15px 20px;
     border-bottom: 1px solid #eee;
+    font-weight: 500;
 }
 
-.weekday-cell {
+.footer-custom {
+    border-top: 1px solid #eee;
+    border-bottom: none;
     text-align: center;
-    padding: 15px 0;
-    font-weight: bold;
-    color: #999;
-    font-size: 0.75rem;
 }
 
-/* Grade de Números */
+/* 3. CENTRALIZAÇÃO DO CONTEÚDO */
+.main-content {
+    flex: 1; /* Ocupa todo o espaço entre Nav e Footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f7f6; /* Fundo levemente cinza */
+    padding: 20px;
+}
+
+/* 4. CARD DO CALENDÁRIO */
+.calendar-card {
+    width: 100%;
+    max-width: 450px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+/* Cabeçalho (Mês e Botões) */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+}
+
+.month-title {
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.nav-btn {
+    border: 1px solid #eee;
+    background: #fff;
+    border-radius: 6px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover {
+    background-color: #f8f9fa;
+    border-color: #ddd;
+}
+
+/* 5. A GRADE (O SEGREDO DAS 7 COLUNAS) */
+.weekdays-grid, 
 .days-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr); /* FORÇA exatamente 7 colunas iguais */
     width: 100%;
 }
 
+/* Nomes dos dias (Dom, Seg...) */
+.weekday-cell {
+    text-align: center;
+    padding: 12px 0;
+    font-weight: 700;
+    color: #adb5bd;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Células dos dias (Números) */
 .day-cell {
-    aspect-ratio: 1 / 1; /* Mantém o quadrado perfeito */
+    aspect-ratio: 1 / 1; /* Garante quadrados perfeitos */
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     border-right: 1px solid #f8f8f8;
     border-bottom: 1px solid #f8f8f8;
-    cursor: pointer;
     font-weight: 500;
+    color: #444;
+    transition: all 0.2s;
     background-color: #fff;
 }
 
-/* Remove a borda da última coluna (Sábados) */
+/* Remove a borda da última coluna (Sábado) para não estourar o card */
 .day-cell:nth-child(7n) {
     border-right: none;
 }
 
 .day-cell:hover {
-    background-color: #f0f7ff;
+    background-color: #e7f1ff;
     color: #0d6efd;
 }
 
+/* Dias que pertencem ao mês anterior ou posterior */
 .neighbor-day {
-    color: #ddd;
+    color: #dee2e6; /* Tom cinza "transparente" */
+    background-color: #fdfdfd;
+}
+
+/* Ajuste para quando o dia for hoje (opcional) */
+.day-cell:active {
+    transform: scale(0.9);
 }
