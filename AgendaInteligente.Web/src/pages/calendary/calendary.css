@@ -72,6 +72,11 @@
     border-color: #ddd;
 }
 
+button {
+    width: 50px;
+    height: 50px;
+}
+
 /* 5. A GRADE (O SEGREDO DAS 7 COLUNAS) */
 .weekdays-grid, 
 .days-grid {
@@ -128,3 +133,39 @@
 .day-cell:active {
     transform: scale(0.9);
 }
+
+.up-menu-hours {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    max-height: 512px;
+    max-width: 450px;
+    background: #ffffff;
+    border: 2px solid red;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    overflow: hidden;
+    opacity: 0.3;
+    
+}
+
+.hours {
+    display: flex;
+    margin: 0px;
+    height: 10%;
+    font-size: 2.0em;
+    border-bottom: 2px solid black;
+    align-items: center;
+    padding-left: 10px;
+    overflow: hidden;
+    transition: ease 2s;
+}
+
+.hours.on {
+    opacity: 1;
+    transform: translateY(0);
+}
+
